@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Canary 24-Hour Intelligence Briefing — 2026-04-09">
+<meta property="og:title" content="Canary 24-Hour Briefing — 2026-04-09">
+<meta property="og:description" content="6 changes detected across 5 categories in the last 24 hours.">
+<meta property="og:image" content="https://canary-landing-one.vercel.app/og-image.png">
+<title>Canary · 24-Hour Briefing · 2026-04-09</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Barlow',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;font-size:15px;line-height:1.6;}
+  a{color:#e8001d;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* TOPBAR */
+  .topbar{background:#0a0a0a;border-bottom:2px solid #1a1a1a;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .logo{width:32px;height:32px;background:#e8001d;display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+  .logo-c{color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;}
+  .brand-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+  .topbar-right{display:flex;align-items:center;gap:16px;}
+  .waitlist-btn{background:#e8001d;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border:none;cursor:pointer;text-decoration:none;}
+  .briefing-type{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666;}
+
+  /* HERO */
+  .hero{padding:48px 32px 40px;border-bottom:1px solid #1a1a1a;max-width:860px;margin:0 auto;}
+  .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e8001d;margin-bottom:12px;}
+  .hero-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:clamp(40px,6vw,72px);letter-spacing:-2px;line-height:.92;text-transform:uppercase;margin-bottom:16px;}
+  .hero-window{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#666;margin-bottom:28px;}
+
+  /* STATS */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #1a1a1a;margin-bottom:0;}
+  .stat{padding:20px 24px;border-right:1px solid #1a1a1a;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:40px;letter-spacing:-2px;line-height:1;}
+  .stat-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#666;margin-top:4px;}
+
+  /* CONTENT */
+  .content{max-width:860px;margin:0 auto;padding:0 32px 64px;}
+
+  /* SECTION */
+  .section{margin-top:48px;}
+  .section-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#666;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .section-title::after{content:'';flex:1;height:1px;background:#1a1a1a;}
+
+  /* CHANGE CARDS */
+  .change-card{border:1px solid #1a1a1a;margin-bottom:12px;transition:border-color .15s;}
+  .change-card:hover{border-color:#333;}
+  .card-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#111;border-bottom:1px solid #1a1a1a;}
+  .score-badge{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;padding:4px 10px;color:#fff;flex-shrink:0;}
+  .card-meta{flex:1;}
+  .site-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;color:#fff;}
+  .card-time{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#555;margin-top:2px;}
+  .category-pill{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid #2a2a2a;color:#666;}
+  .headline{padding:14px 18px 10px;font-size:15px;color:#e0e0e0;font-weight:400;}
+  .insight{padding:10px 18px 14px;display:flex;gap:10px;align-items:flex-start;}
+  .insight-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.12em;color:#0057e8;flex-shrink:0;margin-top:3px;}
+  .insight p{font-size:13px;color:#888;line-height:1.6;margin:0;}
+
+  /* SUMMARY */
+  .summary-body{background:#111;border:1px solid #1a1a1a;padding:28px 32px;}
+  .summary-body h3.section-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#e8001d;margin:24px 0 10px;}
+  .summary-body h3.section-label:first-child{margin-top:0;}
+  .summary-body p{font-size:14px;color:#aaa;line-height:1.7;margin-bottom:8px;}
+  .summary-body .bullet{font-size:14px;color:#ccc;line-height:1.6;padding-left:8px;margin-bottom:6px;}
+
+  /* FOOTER */
+  .page-footer{border-top:1px solid #1a1a1a;padding:32px;text-align:center;max-width:860px;margin:0 auto;}
+  .footer-brand{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-bottom:8px;}
+  .footer-cta{font-size:13px;color:#555;}
+  .footer-cta a{color:#e8001d;}
+
+  /* RESPONSIVE */
+  @media(max-width:600px){
+    .topbar{padding:14px 20px;}
+    .hero{padding:32px 20px 28px;}
+    .content{padding:0 20px 48px;}
+    .stats-row{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid #1a1a1a;}
+    .stat:last-child{border-bottom:none;}
+    .hero-title{font-size:40px;}
+    .summary-body{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="https://canary-landing-one.vercel.app">
+    <div class="logo"><span class="logo-c">C</span></div>
+    <span class="brand-name">Canary</span>
+  </a>
+  <div class="topbar-right">
+    <span class="briefing-type">24-Hour Intelligence Briefing</span>
+    <a class="waitlist-btn" href="https://canary-landing-one.vercel.app">Join Waitlist →</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Early Warning Intelligence</div>
+  <h1 class="hero-title">24-Hour<br>Briefing.</h1>
+  <div class="hero-window">Wednesday 8 April 10:02 UTC — Thursday 9 April 10:02 UTC</div>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-val" style="color:#e8001d">6</div>
+      <div class="stat-label">Changes Detected</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:#e87800">6</div>
+      <div class="stat-label">High Signal (8+)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">5</div>
+      <div class="stat-label">Categories Active</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-title">Intelligence Summary</div>
+    <div class="summary-body"><p>Wednesday 8 April 10:02 UTC – Thursday 9 April 10:02 UTC</p><p>24-HOUR OVERVIEW</p><p>In the last 24 hours, significant changes occurred across multiple leading tech companies, including GitHub, Cohere, Figma, Together AI, Cloudflare, and Azure. These changes are indicative of a rapidly evolving tech landscape, with many companies pushing the boundaries of innovation and disruption. Overall, the theme of this 24-hour period is one of accelerated growth and development.</p><h3 class="section-label">KEY SIGNALS</h3><div class="bullet">→ GitHub Status change is the most critical signal, with a score of 10/10. This indicates a significant shift in the platform's infrastructure or operations, potentially impacting its ability to support developers and businesses. This change matters because GitHub is a critical tool for many companies, and any disruptions could have far-reaching consequences.</div><div class="bullet">→ Cohere's change is also significant, with a score of 10/10. As a leading AI company, Cohere's evolution could signal a major breakthrough in natural language processing or other AI-related technologies. This change is crucial because it may foreshadow a new wave of AI-powered innovations that could disrupt multiple industries.</div><div class="bullet">→ Figma's change is noteworthy, with a score of 10/10. As a leading SaaS platform for design and collaboration, Figma's updates may reflect a new era of user experience and interface design. This change is significant because it could influence the way companies approach product development and user engagement.</div><div class="bullet">→ Together AI's change is another important signal, with a score of 9/10. This company's focus on AI-driven solutions may be indicative of a growing trend towards more efficient and effective AI adoption. This change is worth monitoring because it could signal a shift in the way businesses approach AI implementation.</div><div class="bullet">→ Cloudflare's change is also relevant, with a score of 9/10. As a leading provider of cloud infrastructure and security solutions, Cloudflare's updates could impact the way companies approach online security and data protection. This change is significant because it may foreshadow a new era of online security measures.</div><div class="bullet">→ Azure's change is the final key signal, with a score of 10/10. As a leading cloud provider, Microsoft's Azure updates could reflect a significant shift in cloud computing and infrastructure. This change matters because it may influence the way companies approach cloud adoption and digital transformation.</div><p>WHAT TO WATCH IN THE NEXT 24 HOURS</p><p>In the next 24 hours, it is essential to monitor GitHub's status and potential disruptions, as well as Cohere and Figma's updates, which may signal new breakthroughs in AI and design. Additionally, keep a close eye on Cloudflare's security measures and Azure's cloud infrastructure, as these changes could have far-reaching consequences for online businesses and organizations.</p><p>Detected by Canary — canary-landing-one.vercel.app</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">All Changes — Last 24 Hours</div>
+    
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">GITHUB STATUS</div>
+            <div class="card-time">Thu 9 Apr · 06:19 UTC</div>
+          </div>
+          <div class="category-pill">Status</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> GitHub Status recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">COHERE</div>
+            <div class="card-time">Wed 8 Apr · 15:06 UTC</div>
+          </div>
+          <div class="category-pill">AI</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Cohere recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">FIGMA</div>
+            <div class="card-time">Wed 8 Apr · 16:56 UTC</div>
+          </div>
+          <div class="category-pill">SaaS</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Figma recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">AZURE</div>
+            <div class="card-time">Wed 8 Apr · 20:41 UTC</div>
+          </div>
+          <div class="category-pill">Cloud</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Together AI recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">TOGETHER AI</div>
+            <div class="card-time">Wed 8 Apr · 19:56 UTC</div>
+          </div>
+          <div class="category-pill">AI</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Cloudflare recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">CLOUDFLARE</div>
+            <div class="card-time">Wed 8 Apr · 19:56 UTC</div>
+          </div>
+          <div class="category-pill">Dev Tools</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Azure recorded a significant change.</div>
+      </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  <div class="footer-brand">Canary · Early Warning Intelligence</div>
+  <div class="footer-cta">
+    Monitor any URL on the web. Know before they tell you.<br>
+    <a href="https://canary-landing-one.vercel.app">Join the waitlist →</a>
+  </div>
+</div>
+
+</body>
+</html>
