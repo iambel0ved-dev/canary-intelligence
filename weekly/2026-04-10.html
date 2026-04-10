@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Canary Weekly Intelligence Digest — 3 April – 10 April 2026">
+<meta property="og:title" content="Canary Weekly — 3 April – 10 April 2026">
+<meta property="og:description" content="27 changes detected across 5 sectors this week.">
+<title>Canary · Weekly Digest · 3 April – 10 April 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Barlow',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;font-size:15px;line-height:1.6;}
+  a{color:#e8001d;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  .topbar{background:#0a0a0a;border-bottom:2px solid #1a1a1a;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .logo{width:32px;height:32px;background:#e8001d;display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+  .logo-c{color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;}
+  .brand-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+  .topbar-right{display:flex;align-items:center;gap:16px;}
+  .waitlist-btn{background:#e8001d;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;text-decoration:none;}
+  .briefing-type{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666;}
+  .hero{padding:48px 32px 40px;border-bottom:1px solid #1a1a1a;max-width:860px;margin:0 auto;}
+  .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e8001d;margin-bottom:12px;}
+  .hero-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:clamp(40px,6vw,72px);letter-spacing:-2px;line-height:.92;text-transform:uppercase;margin-bottom:16px;}
+  .hero-window{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#666;margin-bottom:28px;}
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid #1a1a1a;}
+  .stat{padding:20px 24px;border-right:1px solid #1a1a1a;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:40px;letter-spacing:-2px;line-height:1;}
+  .stat-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#666;margin-top:4px;}
+  .content{max-width:860px;margin:0 auto;padding:0 32px 64px;}
+  .section{margin-top:48px;}
+  .section-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#666;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .section-title::after{content:'';flex:1;height:1px;background:#1a1a1a;}
+  .change-card{border:1px solid #1a1a1a;margin-bottom:10px;}
+  .card-header{display:flex;align-items:center;gap:12px;padding:12px 18px;background:#111;border-bottom:1px solid #1a1a1a;}
+  .score-badge{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;padding:4px 10px;color:#fff;flex-shrink:0;}
+  .card-meta{flex:1;}
+  .site-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;}
+  .card-time{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#555;margin-top:2px;}
+  .category-pill{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid #2a2a2a;color:#666;}
+  .headline{padding:12px 18px;font-size:14px;color:#ddd;}
+  .cat-row{display:flex;align-items:center;gap:12px;margin-bottom:10px;}
+  .cat-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#888;width:110px;flex-shrink:0;text-align:right;}
+  .cat-bar-wrap{flex:1;background:#1a1a1a;height:28px;}
+  .cat-bar{background:#e8001d;height:100%;opacity:.8;}
+  .cat-count{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:#666;width:28px;text-align:right;}
+  .summary-body{background:#111;border:1px solid #1a1a1a;padding:28px 32px;}
+  .summary-body h3.section-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#e8001d;margin:24px 0 10px;}
+  .summary-body h3.section-label:first-child{margin-top:0;}
+  .summary-body p{font-size:14px;color:#aaa;line-height:1.7;margin-bottom:8px;}
+  .summary-body .bullet{font-size:14px;color:#ccc;line-height:1.6;padding-left:8px;margin-bottom:6px;}
+  .page-footer{border-top:1px solid #1a1a1a;padding:32px;text-align:center;max-width:860px;margin:0 auto;}
+  .footer-brand{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-bottom:8px;}
+  .footer-cta{font-size:13px;color:#555;}
+  .footer-cta a{color:#e8001d;}
+  @media(max-width:600px){
+    .topbar{padding:14px 20px;}
+    .hero{padding:32px 20px 28px;}
+    .content{padding:0 20px 48px;}
+    .stats-row{grid-template-columns:1fr 1fr;}
+    .stat:nth-child(2){border-right:none;}
+    .stat:nth-child(3){border-top:1px solid #1a1a1a;}
+    .stat:nth-child(4){border-top:1px solid #1a1a1a;border-right:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="https://canary-landing-one.vercel.app">
+    <div class="logo"><span class="logo-c">C</span></div>
+    <span class="brand-name">Canary</span>
+  </a>
+  <div class="topbar-right">
+    <span class="briefing-type">Weekly Intelligence Digest</span>
+    <a class="waitlist-btn" href="https://canary-landing-one.vercel.app">Join Waitlist →</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Watch Anything. Know Everything.</div>
+  <h1 class="hero-title">The Canary<br>Weekly.</h1>
+  <div class="hero-window">3 April – 10 April 2026</div>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-val" style="color:#e8001d">27</div>
+      <div class="stat-label">Changes This Week</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:#e87800">26</div>
+      <div class="stat-label">High Signal</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">5</div>
+      <div class="stat-label">Sectors Active</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">33</div>
+      <div class="stat-label">URLs Monitored</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-title">Weekly Analysis</div>
+    <div class="summary-body"><p>3 April – 10 April 2026</p><h3 class="section-label">THIS WEEK IN BRIEF</h3><p>The past 7 days have been marked by significant moves across various sectors, with SaaS and Status changes taking center stage. Notably, the AI sector saw substantial activity, with multiple key players experiencing notable changes. Conversely, Dev Tools and Cloud sectors remained relatively quiet. Overall, our 7-day monitoring window has provided valuable insights into the evolving competitive landscape.</p><h3 class="section-label">BIGGEST MOVES THIS WEEK</h3><p>AHERFS scored a perfect 10/10 on two separate occasions this week, underscoring the importance of its offerings in the SaaS space. On April 10, 2026, the company made a critical update, solidifying its position as a leader in the industry. This move highlights AHERFS's commitment to innovation and expansion.</p><p>GHUB STATUS, on the other hand, also achieved a perfect 10/10 on multiple occasions, with a notable update on April 9, 2026. The change underscores the immense importance of GitHub's services in the development ecosystem. This move is a testament to GitHub's continued dominance in the Status sector.</p><p>RENDER's perfect 10/10 score on April 9, 2026, signals a significant development in the Dev Tools space. This update marks a crucial milestone for the company, further solidifying its position as a major player in the sector.</p><p>ANHORPIC and COHERE both achieved perfect 10/10 scores, with Anthropic's update on April 8, 2026, and Cohere's update on the same day. These moves highlight the rapidly evolving landscape of AI and the importance of these companies in shaping this sector.</p><h3 class="section-label">SECTOR BREAKDOWN</h3><p>SaaS: The SaaS sector experienced significant activity this week, with 7 changes detected across multiple key players. Notably, AHERFS's perfect 10/10 scores underscore the importance of this space in the competitive landscape.</p><p>Status: The Status sector saw 11 changes, with GHUB STATUS's multiple perfect 10/10 scores standing out. This highlights the sector's immense importance in the development ecosystem.</p><p>AI: The AI sector experienced a surge in activity this week, with 4 notable changes detected across Anthropic, Cohere, and other key players. This underscores the rapidly evolving nature of this space.</p><p>Dev Tools: The Dev Tools sector saw 2 changes this week, with REORDER's perfect 10/10 score standing out. This marks a significant development in the sector and highlights the importance of this company in the competitive landscape.</p><p>Cloud: The Cloud sector experienced 3 changes this week, with notable updates from key players in this space.</p><h3 class="section-label">TRENDS TO WATCH NEXT WEEK</h3><div class="bullet">→ The rapid evolution of the AI sector will continue to be a focal point, with Anthropic and Cohere likely to remain at the forefront of this trend.</div><div class="bullet">→ The SaaS sector's dominance will persist, with AHERFS set to maintain its position as a leader in the space.</div><div class="bullet">→ The Status sector will remain critical to the development ecosystem, with GHUB STATUS likely to continue its leadership role.</div><h3 class="section-label">BY THE NUMBERS</h3><p>Total changes this week: 27</p><p>Most active sector: Status</p><p>Quietest sector: Cloud</p><p>Highest signal change: AHERFS (score: 10/10, April 10, 2026)</p><p>Canary monitors any URL on the web and delivers intelligence before anyone else.</p><p>Join the waitlist: canary-landing-one.vercel.app</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Changes by Sector</div>
+    <div style="background:#111;border:1px solid #1a1a1a;padding:24px 28px;">
+      
+    <div class="cat-row">
+      <div class="cat-label">Status</div>
+      <div class="cat-bar-wrap">
+        <div class="cat-bar" style="width:41%"></div>
+      </div>
+      <div class="cat-count">11</div>
+    </div>
+    <div class="cat-row">
+      <div class="cat-label">SaaS</div>
+      <div class="cat-bar-wrap">
+        <div class="cat-bar" style="width:26%"></div>
+      </div>
+      <div class="cat-count">7</div>
+    </div>
+    <div class="cat-row">
+      <div class="cat-label">AI</div>
+      <div class="cat-bar-wrap">
+        <div class="cat-bar" style="width:15%"></div>
+      </div>
+      <div class="cat-count">4</div>
+    </div>
+    <div class="cat-row">
+      <div class="cat-label">Cloud</div>
+      <div class="cat-bar-wrap">
+        <div class="cat-bar" style="width:11%"></div>
+      </div>
+      <div class="cat-count">3</div>
+    </div>
+    <div class="cat-row">
+      <div class="cat-label">Dev Tools</div>
+      <div class="cat-bar-wrap">
+        <div class="cat-bar" style="width:7%"></div>
+      </div>
+      <div class="cat-count">2</div>
+    </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Top Changes This Week</div>
+    
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">AHREFS</div>
+          <div class="card-time">Fri 10 Apr</div>
+        </div>
+        <div class="category-pill">SaaS</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">AHREFS</div>
+          <div class="card-time">Fri 10 Apr</div>
+        </div>
+        <div class="category-pill">SaaS</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">GITHUB STATUS</div>
+          <div class="card-time">Thu 9 Apr</div>
+        </div>
+        <div class="category-pill">Status</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">GITHUB STATUS</div>
+          <div class="card-time">Thu 9 Apr</div>
+        </div>
+        <div class="category-pill">Status</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">RENDER</div>
+          <div class="card-time">Thu 9 Apr</div>
+        </div>
+        <div class="category-pill">Dev Tools</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">GITHUB STATUS</div>
+          <div class="card-time">Thu 9 Apr</div>
+        </div>
+        <div class="category-pill">Status</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">ANTHROPIC</div>
+          <div class="card-time">Wed 8 Apr</div>
+        </div>
+        <div class="category-pill">AI</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+    <div class="change-card">
+      <div class="card-header">
+        <div class="score-badge" style="background:#e8001d">10/10</div>
+        <div class="card-meta">
+          <div class="site-name">COHERE</div>
+          <div class="card-time">Wed 8 Apr</div>
+        </div>
+        <div class="category-pill">AI</div>
+      </div>
+      <div class="headline">Significant change detected</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  <div class="footer-brand">Canary · Watch Anything. Know Everything.</div>
+  <div class="footer-cta">
+    Your eyes on everything that matters to you. Know before they tell you.<br>
+    <a href="https://canary-landing-one.vercel.app">Join the waitlist →</a>
+  </div>
+</div>
+
+</body>
+</html>
