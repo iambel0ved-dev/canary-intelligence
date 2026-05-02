@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Canary 24-Hour Intelligence Briefing — 2026-05-02">
+<meta property="og:title" content="Canary 24-Hour Briefing — 2026-05-02">
+<meta property="og:description" content="90 changes detected across 7 categories in the last 24 hours.">
+<meta property="og:image" content="https://canary-landing-one.vercel.app/og-image.png">
+<title>Canary · 24-Hour Briefing · 2026-05-02</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Barlow',sans-serif;background:#0a0a0a;color:#fff;min-height:100vh;font-size:15px;line-height:1.6;}
+  a{color:#e8001d;text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* TOPBAR */
+  .topbar{background:#0a0a0a;border-bottom:2px solid #1a1a1a;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+  .logo{width:32px;height:32px;background:#e8001d;display:flex;align-items:center;justify-content:center;clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
+  .logo-c{color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;}
+  .brand-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
+  .topbar-right{display:flex;align-items:center;gap:16px;}
+  .waitlist-btn{background:#e8001d;color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:8px 18px;border:none;cursor:pointer;text-decoration:none;}
+  .briefing-type{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#666;}
+
+  /* HERO */
+  .hero{padding:48px 32px 40px;border-bottom:1px solid #1a1a1a;max-width:860px;margin:0 auto;}
+  .hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#e8001d;margin-bottom:12px;}
+  .hero-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-style:italic;font-size:clamp(40px,6vw,72px);letter-spacing:-2px;line-height:.92;text-transform:uppercase;margin-bottom:16px;}
+  .hero-window{font-family:'Barlow Condensed',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#666;margin-bottom:28px;}
+
+  /* STATS */
+  .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid #1a1a1a;margin-bottom:0;}
+  .stat{padding:20px 24px;border-right:1px solid #1a1a1a;}
+  .stat:last-child{border-right:none;}
+  .stat-val{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:40px;letter-spacing:-2px;line-height:1;}
+  .stat-label{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#666;margin-top:4px;}
+
+  /* CONTENT */
+  .content{max-width:860px;margin:0 auto;padding:0 32px 64px;}
+
+  /* SECTION */
+  .section{margin-top:48px;}
+  .section-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#666;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+  .section-title::after{content:'';flex:1;height:1px;background:#1a1a1a;}
+
+  /* CHANGE CARDS */
+  .change-card{border:1px solid #1a1a1a;margin-bottom:12px;transition:border-color .15s;}
+  .change-card:hover{border-color:#333;}
+  .card-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#111;border-bottom:1px solid #1a1a1a;}
+  .score-badge{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:13px;padding:4px 10px;color:#fff;flex-shrink:0;}
+  .card-meta{flex:1;}
+  .site-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.06em;color:#fff;}
+  .card-time{font-family:'Barlow Condensed',sans-serif;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#555;margin-top:2px;}
+  .category-pill{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border:1px solid #2a2a2a;color:#666;}
+  .headline{padding:14px 18px 10px;font-size:15px;color:#e0e0e0;font-weight:400;}
+  .insight{padding:10px 18px 14px;display:flex;gap:10px;align-items:flex-start;}
+  .insight-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.12em;color:#0057e8;flex-shrink:0;margin-top:3px;}
+  .insight p{font-size:13px;color:#888;line-height:1.6;margin:0;}
+
+  /* SUMMARY */
+  .summary-body{background:#111;border:1px solid #1a1a1a;padding:28px 32px;}
+  .summary-body h3.section-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#e8001d;margin:24px 0 10px;}
+  .summary-body h3.section-label:first-child{margin-top:0;}
+  .summary-body p{font-size:14px;color:#aaa;line-height:1.7;margin-bottom:8px;}
+  .summary-body .bullet{font-size:14px;color:#ccc;line-height:1.6;padding-left:8px;margin-bottom:6px;}
+
+  /* FOOTER */
+  .page-footer{border-top:1px solid #1a1a1a;padding:32px;text-align:center;max-width:860px;margin:0 auto;}
+  .footer-brand{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#666;margin-bottom:8px;}
+  .footer-cta{font-size:13px;color:#555;}
+  .footer-cta a{color:#e8001d;}
+
+  /* RESPONSIVE */
+  @media(max-width:600px){
+    .topbar{padding:14px 20px;}
+    .hero{padding:32px 20px 28px;}
+    .content{padding:0 20px 48px;}
+    .stats-row{grid-template-columns:1fr;}
+    .stat{border-right:none;border-bottom:1px solid #1a1a1a;}
+    .stat:last-child{border-bottom:none;}
+    .hero-title{font-size:40px;}
+    .summary-body{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="https://canary-landing-one.vercel.app">
+    <div class="logo"><span class="logo-c">C</span></div>
+    <span class="brand-name">Canary</span>
+  </a>
+  <div class="topbar-right">
+    <span class="briefing-type">24-Hour Intelligence Briefing</span>
+    <a class="waitlist-btn" href="https://canary-landing-one.vercel.app">Join Waitlist →</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">Watch Anything. Know Everything.</div>
+  <h1 class="hero-title">24-Hour<br>Briefing.</h1>
+  <div class="hero-window">Friday 1 May 09:53 UTC — Saturday 2 May 09:53 UTC</div>
+  <div class="stats-row">
+    <div class="stat">
+      <div class="stat-val" style="color:#e8001d">90</div>
+      <div class="stat-label">Changes Detected</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:#e87800">43</div>
+      <div class="stat-label">High Signal (8+)</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">7</div>
+      <div class="stat-label">Categories Active</div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-title">Intelligence Summary</div>
+    <div class="summary-body"><p>Friday 1 May 09:53 UTC – Saturday 2 May 09:53 UTC</p><p>24-HOUR OVERVIEW</p><p>The last 24 hours saw significant changes in the tech and finance sectors, with a focus on pricing, employment, and economic updates. Multiple sources, including news outlets and job boards, reported notable changes, indicating a heightened level of activity. Overall, these updates suggest a dynamic market responding to shifting trends and conditions.</p><h3 class="section-label">KEY SIGNALS</h3><div class="bullet">→ Stripe's pricing change (Score: 10/10) is a key signal, as it indicates a potential shift in the company's revenue strategy and may impact its competitors. This change is most notable as it was recorded multiple times, suggesting a possible announcement or update that was widely picked up.</div><div class="bullet">→ CNBC Economy's series of updates (Score: 10/10) is another significant signal, as it highlights ongoing economic trends and may indicate changes in market conditions. This level of consistency across multiple updates suggests a growing narrative around economic shifts.</div><div class="bullet">→ RemoteOK's and YC Jobs' job postings (Scores: 9/10 and 8/10) are also noteworthy, as they indicate a growing demand for remote workers and may reflect changes in the labor market. These updates are particularly interesting as they suggest a trend towards remote employment.</div><div class="bullet">→ TechCrunch's series of updates (Score: 9/10) is also significant, as it highlights ongoing trends in tech and may indicate growing interest in specific areas.</div><p>WHAT TO WATCH IN THE NEXT 24 HOURS</p><p>Monitor Stripe's revenue strategy and potential impact on competitors, as well as ongoing economic trends and job market shifts. Pay attention to news surrounding remote employment and potential changes in labor market conditions.</p><p>Detected by Canary — canary-landing-one.vercel.app</p></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">All Changes — Last 24 Hours</div>
+    
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">STRIPE</div>
+            <div class="card-time">Sat 2 May · 03:39 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Stripe recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">CNBC ECONOMY</div>
+            <div class="card-time">Sat 2 May · 03:40 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">STRIPE</div>
+            <div class="card-time">Sat 2 May · 08:23 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">REMOTEOK</div>
+            <div class="card-time">Sat 2 May · 08:24 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> CNBC Economy recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">STRIPE</div>
+            <div class="card-time">Fri 1 May · 11:12 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">CNBC ECONOMY</div>
+            <div class="card-time">Fri 1 May · 11:13 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">STRIPE</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> RemoteOK recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> MarkTechPost recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE NEXT WEB</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">CNBC ECONOMY</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">AHREFS</div>
+            <div class="card-time">Fri 1 May · 17:02 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE NEXT WEB</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Stripe recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">AHREFS</div>
+            <div class="card-time">Fri 1 May · 19:19 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TechCrunch recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">TECHCRUNCH</div>
+            <div class="card-time">Fri 1 May · 19:19 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Next Web recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">CNBC ECONOMY</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">CNBC ECONOMY</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">STRIPE</div>
+            <div class="card-time">Fri 1 May · 22:00 UTC</div>
+          </div>
+          <div class="category-pill">Pricing</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">10/10</div>
+          <div class="card-meta">
+            <div class="site-name">CNBC ECONOMY</div>
+            <div class="card-time">Fri 1 May · 22:01 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Sat 2 May · 03:40 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> RemoteOK recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">MARKTECHPOST</div>
+            <div class="card-time">Sat 2 May · 06:12 UTC</div>
+          </div>
+          <div class="category-pill">AI News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">TECHCRUNCH</div>
+            <div class="card-time">Sat 2 May · 08:23 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE NEXT WEB</div>
+            <div class="card-time">Sat 2 May · 08:24 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> RemoteOK recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">TECHCRUNCH</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Stripe recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Next Web recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">REMOTEOK</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">TECHCRUNCH</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">REMOTEOK</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> CNBC Economy recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Crunchbase News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE NEXT WEB</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">CRUNCHBASE NEWS</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Fri 1 May · 22:01 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Stripe recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">9/10</div>
+          <div class="card-meta">
+            <div class="site-name">TECHCRUNCH</div>
+            <div class="card-time">Fri 1 May · 23:56 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TechCrunch recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">REMOTEOK</div>
+            <div class="card-time">Sat 2 May · 03:40 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE NEXT WEB</div>
+            <div class="card-time">Fri 1 May · 11:12 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Next Web recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 11:12 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">TECHCRUNCH</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">RETAIL DIVE</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Ecommerce</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> CNBC Economy recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">WE WORK REMOTELY</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">RETAIL DIVE</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Ecommerce</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">TC VENTURE</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TechCrunch recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">WE WORK REMOTELY</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Fri 1 May · 23:56 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e8001d">8/10</div>
+          <div class="card-meta">
+            <div class="site-name">TC VENTURE</div>
+            <div class="card-time">Fri 1 May · 23:56 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">REMOTEOK</div>
+            <div class="card-time">Fri 1 May · 09:52 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 11:13 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> RemoteOK recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Retail Dive recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">THE VERGE</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Ahrefs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">MARKTECHPOST</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">AI News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TechCrunch recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">7/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 23:57 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Next Web recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Sat 2 May · 03:40 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Sat 2 May · 03:40 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Sat 2 May · 06:12 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Sat 2 May · 06:12 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Sat 2 May · 08:24 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> We Work Remotely recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Sat 2 May · 08:24 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> RemoteOK recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Sat 2 May · 08:24 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Retail Dive recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 09:52 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Ahrefs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 09:52 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TechCrunch recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 11:12 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">CRUNCHBASE NEWS</div>
+            <div class="card-time">Fri 1 May · 11:13 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Next Web recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 11:13 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> CNBC Economy recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 13:40 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Crunchbase News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TC Venture recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 15:02 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> MarkTechPost recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 17:03 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> CNBC Economy recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> We Work Remotely recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Stripe recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 21:00 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 22:01 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> BBC Business recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">BBC BUSINESS</div>
+            <div class="card-time">Fri 1 May · 22:01 UTC</div>
+          </div>
+          <div class="category-pill">Economics</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> CNBC Economy recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 22:01 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">YC JOBS</div>
+            <div class="card-time">Fri 1 May · 22:01 UTC</div>
+          </div>
+          <div class="category-pill">Jobs</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">MARKTECHPOST</div>
+            <div class="card-time">Fri 1 May · 23:56 UTC</div>
+          </div>
+          <div class="category-pill">AI News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> MarkTechPost recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 23:56 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TechCrunch recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#e87800">6/10</div>
+          <div class="card-meta">
+            <div class="site-name">SEC 8-K FILINGS</div>
+            <div class="card-time">Fri 1 May · 23:56 UTC</div>
+          </div>
+          <div class="category-pill">Investor</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> The Verge recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#0057e8">5/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Sat 2 May · 03:40 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> Hacker News recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#0057e8">5/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Sat 2 May · 06:12 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> TC Venture recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#0057e8">5/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Sat 2 May · 08:24 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> SEC 8-K Filings recorded a significant change.</div>
+      </div>
+      <div class="change-card">
+        <div class="card-header">
+          <div class="score-badge" style="background:#0057e8">5/10</div>
+          <div class="card-meta">
+            <div class="site-name">HACKER NEWS</div>
+            <div class="card-time">Fri 1 May · 19:20 UTC</div>
+          </div>
+          <div class="category-pill">Tech News</div>
+        </div>
+        <div class="headline">Significant change detected</div>
+        <div class="insight"><span class="insight-label">✦ INSIGHT</span> YC Jobs recorded a significant change.</div>
+      </div>
+  </div>
+
+</div>
+
+<div class="page-footer">
+  <div class="footer-brand">Canary · Watch Anything. Know Everything.</div>
+  <div class="footer-cta">
+    Your eyes on everything that matters to you. Know before they tell you.<br>
+    <a href="https://canary-landing-one.vercel.app">Join the waitlist →</a>
+  </div>
+</div>
+
+</body>
+</html>
